@@ -1,16 +1,16 @@
 package com.company;
 public class Main {
     public static void main(String[] args) {
-        int dim = 100000000;
-        int threadNum = 4;//Кількість потоків
-        long time = System.nanoTime();//Знаходимо теперішній час
-        ArrClass arrClass = new ArrClass(dim, threadNum);//Створення класу, де буду всі обраховування
-        long minIndex = arrClass.partMin(0, dim);//Знаходження minIndex у всьому масиві
-        time = System.nanoTime() - time;// знаходимо час виконання потоку
-        System.out.println(minIndex + " time:" + time);//виведення індекса і час за який найшло в 1 потоці
-        time = System.nanoTime();//Знаходимо теперішній час
-        minIndex = arrClass.threadMin();//Знаходимо minIndex в n-кількостях потоків
-        time = System.nanoTime() - time;// знаходимо час виконання потоку
-        System.out.println(minIndex + " time:" + time);//виведення індекса і час за який найшло в n-потоках
+        int number_of_cells = 100000000;
+        int threadNum = 4;                                                      //Кількість потоків
+        long time = System.nanoTime();                                          //Засікаємо час
+        ArayClass arrClass = new ArayClass(number_of_cells, threadNum);         //Клас з усіма обраховуваннями
+        long minIndex = arrClass.OneThreadMin(0, number_of_cells);      //Шукаємо мінімальний елемент у масиві за допомогою одного потоку
+        time = System.nanoTime() - time;                                        //Обчислюємо час роботи програми
+        System.out.println(minIndex + " time:" + time);                         //Виводимо на екран мінімальний елемент і час роботи програми з одним потоком
+        time = System.nanoTime();                                               //Засікаємо час
+        minIndex = arrClass.threadMin();                                        //Знаходимо minIndex в n-кількостях потоків
+        time = System.nanoTime() - time;                                        //Обчислюємо час роботи програми
+        System.out.println(minIndex + " time:" + time);                         //Виводимо на екран мінімальний елемент і час роботи програми в n-потоках
     }
 }
